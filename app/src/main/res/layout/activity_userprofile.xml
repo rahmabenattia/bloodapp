@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserprofileActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="#EEEEEE">
+
+            <ImageView
+                android:id="@+id/image_view_profile_dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/no_profile" />
+
+            <TextView
+                android:id="@+id/textview_show_welcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/image_view_profile_dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:hint="Loading..."
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/black"></TextView>
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:elevation="10dp"
+                android:visibility="gone"></ProgressBar>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="203dp"
+            android:layout_margin="20dp"
+            android:background="#EEEEEE"
+            android:padding="15dp">
+
+            <ImageView
+                android:id="@+id/ici_profile"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/baseline_person_outline_24"></ImageView>
+
+            <TextView
+                android:id="@+id/textview_show_full_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:hint="Loading"
+                android:textSize="18sp"></TextView>
+
+            <View
+                android:id="@+id/divider_name"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/textview_show_full_name"
+                android:layout_marginTop="20dp"
+                android:background="#A19E9E" />
+
+            <ImageView
+                android:id="@+id/ici_email"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/divider_name"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/baseline_alternate_email_24"></ImageView>
+
+            <TextView
+                android:id="@+id/textview_show_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider_name"
+                android:layout_alignStart="@id/ici_email"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:hint="Loading"
+                android:textSize="18sp"></TextView>
+
+            <View
+                android:id="@+id/divider_email"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/textview_show_full_name"
+                android:layout_marginTop="20dp"
+                android:background="#A19E9E"></View>
+
+            <ImageView
+                android:id="@+id/ici_age"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_below="@id/divider_email"
+                android:layout_marginTop="20dp"></ImageView>
+
+            <TextView
+                android:id="@+id/textview_show_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/divider_email"
+                android:layout_alignStart="@id/ici_age"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="90dp"
+                android:hint="Loading"
+                android:textSize="18sp"></TextView>
+
+            <View
+                android:id="@+id/divider_age"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@+id/textview_show_email"
+                android:layout_marginTop="20dp"
+                android:background="#A19E9E"></View>
+
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:elevation="10dp"
+                android:visibility="gone"
+                tools:ignore="DuplicateIds"></ProgressBar>
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

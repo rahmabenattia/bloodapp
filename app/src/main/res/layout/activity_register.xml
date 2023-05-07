@@ -4,92 +4,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/loginfinel"
     tools:context=".registerActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:layout_margin="15dp"
-        android:background="@color/white">
+        android:layout_marginTop="80dp"
+        >
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:id="@+id/textview_register_head"
-            android:layout_marginTop="30dp"
-            android:text="Please enter your details to register on the app"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Headline"></TextView>
-        
+            android:gravity="center"
+            android:text="Sign up"
+            android:textSize="25sp"
+            android:textColor="@color/red"
+            android:layout_marginStart="100dp"
+            android:textStyle="bold" />
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="100sp"
             android:layout_height="wrap_content"
             android:id="@+id/textview_register_full_name"
-            android:layout_below="@id/textview_register_head"
             android:text="Full Name"
-            android:textColor="#555555"
+            android:textColor="#A0C7C2"
+            android:textStyle="bold"
             android:padding="6dp"
             android:textSize="16sp"
-            android:layout_marginTop="50dp"></TextView>
+            android:layout_marginTop="25dp"></TextView>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_register_full_name"
             android:hint="Enter your full name"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@drawable/baseline_person_pin_24"
             android:inputType="textPersonName"
             android:textSize="16sp"
+            android:textColorHint="#A0C7C2"
+
             android:padding="6dp"
             android:layout_below="@id/textview_register_full_name"
-            android:background="@drawable/border"></EditText>
+            android:background="@drawable/lavender_border"></EditText>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/textview_register_email"
             android:layout_below="@id/edittext_register_full_name"
             android:text="Email"
-            android:textColor="#555555"
+            android:textColor="#A0C7C2"
+            android:textStyle="bold"
             android:padding="6dp"
             android:textSize="16sp"
-            android:layout_marginTop="10dp"></TextView>
+            android:layout_marginTop="5dp"></TextView>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_register_email"
             android:hint="Enter your email"
+            android:layout_marginTop="5dp"
             android:inputType="textEmailAddress"
+            android:drawableLeft="@drawable/baseline_email_24"
+            android:textColorHint="#A0C7C2"
             android:textSize="16sp"
             android:padding="6dp"
             android:layout_below="@id/textview_register_email"
-            android:background="@drawable/border"></EditText>
+            android:background="@drawable/lavender_border"></EditText>
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:id="@+id/textview_register_age"
             android:layout_below="@id/edittext_register_email"
             android:text="Age"
-            android:textColor="#555555"
+            android:textStyle="bold"
+            android:textColor="#A0C7C2"
+
             android:padding="6dp"
             android:textSize="16sp"
-            android:layout_marginTop="10dp"></TextView>
+            android:layout_marginTop="5dp"></TextView>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_register_age"
             android:hint="Enter your age"
+            android:drawableLeft="@drawable/baseline_person_24"
+            android:layout_marginTop="5dp"
+            android:textColorHint="#A0C7C2"
             android:inputType="number"
             android:textSize="16sp"
             android:padding="6dp"
             android:layout_below="@id/textview_register_age"
-            android:background="@drawable/border"></EditText>
+            android:background="@drawable/lavender_border"></EditText>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textview_register_chronic"
             android:layout_below="@id/edittext_register_age"
             android:text="Chronic Diseases"
-            android:textColor="#555555"
+            android:textColor="#A0C7C2"
+            android:textStyle="bold"
             android:padding="6dp"
             android:textSize="16sp"
-            android:layout_marginTop="10dp"></TextView>
+            android:layout_marginTop="5dp"></TextView>
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -114,35 +131,63 @@
                 android:textColor="#555555"></RadioButton>
         </RadioGroup>
         <TextView
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="43dp"
+            android:text="Choose your blood group"
+            android:textColor="#A0C7C2"
+            android:textStyle="bold"
+            android:layout_below="@id/radio_group_register_chronic"
+            android:padding="6dp"
+            android:layout_marginTop="3dp"
+            android:textSize="16sp"></TextView>
+
+
+        <Spinner
+            android:id="@+id/spinnerGroupesanguin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_below="@+id/group"
+            android:background="@drawable/lavender_border"
+            android:entries="@array/groupes_sanguine"
+            android:prompt="@string/choisir_groupe_sanguin" />
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textview_register_password"
-            android:layout_below="@id/radio_group_register_chronic"
+            android:layout_below="@id/spinnerGroupesanguin"
             android:text="Password"
-            android:textColor="#555555"
+            android:textColor="#A0C7C2"
+
+            android:textStyle="bold"
             android:padding="6dp"
             android:textSize="16sp"
-            android:layout_marginTop="10dp"></TextView>
+            android:layout_marginTop="5dp"></TextView>
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_register_password"
-            android:hint="Enter your age"
+            android:hint="Enter your password"
+            android:textColorHint="#A0C7C2"
+            android:layout_marginTop="5dp"
             android:inputType="textPassword"
+            android:drawableLeft="@drawable/baseline_lock_24"
             android:textSize="16sp"
             android:padding="6dp"
             android:layout_below="@id/textview_register_password"
-            android:background="@drawable/border"></EditText>
+            android:background="@drawable/lavender_border"></EditText>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button_register"
             android:layout_marginLeft="70dp"
-            android:backgroundTint="#850606"
+            android:background="@drawable/buttom_background"
             android:layout_marginRight="70dp"
             android:layout_below="@+id/edittext_register_password"
-            android:layout_marginTop="50dp"
-            android:text="Register"></Button>
+            android:layout_marginTop="15dp"
+            android:textColor="#A0C7C2"
+            android:text="Sign Up"></Button>
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

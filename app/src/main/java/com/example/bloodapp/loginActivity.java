@@ -107,7 +107,7 @@ public class loginActivity extends AppCompatActivity {
                     FirebaseUser firebaseUser = authProfile.getCurrentUser();
                     if (firebaseUser.isEmailVerified()){
                         Toast.makeText(loginActivity.this, "You are logged in now", Toast.LENGTH_LONG).show();
-                        startActivity(new Intent(loginActivity.this, UserprofileActivity.class));
+                        startActivity(new Intent(loginActivity.this, MainActivity2.class));
                         finish();
                     } else {
                         firebaseUser.sendEmailVerification();
@@ -157,7 +157,7 @@ public class loginActivity extends AppCompatActivity {
         super.onStart();
         if (authProfile.getCurrentUser() != null){
             Toast.makeText(this, "Already logged In!", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(loginActivity.this, UserprofileActivity.class));
+            startActivity(new Intent(loginActivity.this, MainActivity2.class));
             finish();
         }else {
             Toast.makeText(this, "You can login Now!", Toast.LENGTH_LONG).show();

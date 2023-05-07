@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/loginfinel"
     tools:context=".loginActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="15dp"
-        android:layout_margin="15dp">
+        android:layout_marginTop="150dp"
+        >
      <TextView
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:id="@+id/textview_login_head"
          android:layout_marginTop="30dp"
-         android:text="Please enter your credentials to login"
+         android:text= "login"
+         android:textColor="#A0C7C2"
+         android:textStyle="bold"
          android:textAlignment="center"
          android:textAppearance="@style/TextAppearance.AppCompat.Headline"></TextView>
       <TextView
@@ -25,8 +28,9 @@
           android:id="@+id/textview_login_email"
           android:layout_below="@+id/textview_login_head"
           android:text="Email"
+          android:textStyle="bold"
           android:padding="6dp"
-          android:textColor="#555555"
+          android:textColor="#A0C7C2"
           android:textSize="16sp"></TextView>
         <EditText
             android:layout_width="match_parent"
@@ -35,34 +39,42 @@
             android:layout_below="@id/textview_login_email"
             android:hint="Enter email"
             android:inputType="textEmailAddress"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@drawable/baseline_person_pin_24"
+            android:textColorHint="#A0C7C2"
             android:padding="6dp"
             android:textSize="16sp"
-            android:background="@drawable/border"></EditText>
+            android:background="@drawable/lavender_border"></EditText>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textview_login_pwd"
             android:layout_below="@id/edittext_login_email"
             android:text="Password"
-            android:textColor="#555555"
+            android:textColor="#A0C7C2"
+            android:textStyle="bold"
             android:padding="6dp"
             android:textSize="16sp"></TextView>
+
         <ImageView
+            android:id="@+id/image_view_hide_pwd"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:id="@+id/image_view_hide_pwd"
-            android:layout_below="@id/textview_login_pwd"></ImageView>
+            android:layout_marginTop="6dp"></ImageView>
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/edittext_login_pwd"
             android:layout_below="@id/textview_login_pwd"
-            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:drawableLeft="@drawable/baseline_lock_24"
+            android:textColorHint="#A0C7C2"
             android:hint="Enter password"
             android:inputType="textPassword"
             android:padding="6dp"
             android:textSize="16sp"
-            android:background="@drawable/border"></EditText>
+            android:background="@drawable/lavender_border"></EditText>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,6 +82,9 @@
             android:id="@+id/button_login"
             android:backgroundTint="#850606"
             android:layout_below="@id/edittext_login_pwd"
+            android:background="@drawable/buttom_background"
+            android:textColor="#A0C7C2"
+            android:textStyle="bold"
             android:layout_marginTop="50dp"
             android:layout_marginRight="70dp"
             android:layout_marginLeft="70dp"></Button>
@@ -78,9 +93,13 @@
             android:layout_height="wrap_content"
             android:text="Forgot Password"
             android:backgroundTint="#850606"
+            android:background="@drawable/buttom_background"
+            android:layout_marginTop="10dp"
             android:id="@+id/button_forgot_password"
             android:layout_below="@+id/button_login"
+            android:textStyle="bold"
             android:layout_marginRight="70dp"
+            android:textColor="#A0C7C2"
             android:layout_marginLeft="70dp"></Button>
         <ProgressBar
             android:layout_width="wrap_content"

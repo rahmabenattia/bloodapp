@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,12 +31,13 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class registerActivity extends AppCompatActivity {
 
-     private EditText edittextRegisterFullName,edittextRegisterEmail,edittextRegisterAge,edittextRegisterpassword;
-     private ProgressBar progressBar;
-     private RadioGroup radioGroupRegisterChronic;
-     private  RadioButton oui;
-     private RadioButton radioButtonRegisterChronicselected;
-     private static final String TAG="registerActivity";
+    private EditText edittextRegisterFullName,edittextRegisterEmail,edittextRegisterAge,edittextRegisterpassword;
+    private ProgressBar progressBar;
+    private RadioGroup radioGroupRegisterChronic;
+    private  RadioButton oui;
+    private RadioButton radioButtonRegisterChronicselected;
+    private static final String TAG="registerActivity";
+    private Spinner spinnerGroupesanguin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +51,7 @@ public class registerActivity extends AppCompatActivity {
         edittextRegisterEmail = findViewById(R.id.edittext_register_email);
         oui = findViewById(R.id.radio_oui);
         edittextRegisterAge = findViewById(R.id.edittext_register_age);
+        spinnerGroupesanguin = findViewById(R.id.spinnerGroupesanguin);
         edittextRegisterpassword = findViewById(R.id.edittext_register_password);
 
         radioGroupRegisterChronic = findViewById(R.id.radio_group_register_chronic);
@@ -62,6 +65,7 @@ public class registerActivity extends AppCompatActivity {
 
                 String textFullName = edittextRegisterFullName.getText().toString();
                 String textEmail = edittextRegisterEmail.getText().toString();
+                String textgrp = spinnerGroupesanguin.getSelectedItem().toString();
                 String textPwd = edittextRegisterpassword.getText().toString();
                 Integer textAge = Integer.valueOf( edittextRegisterAge.getText().toString());
                 String textChronic;
@@ -103,13 +107,13 @@ public class registerActivity extends AppCompatActivity {
                 } else {
                     textChronic = radioButtonRegisterChronicselected.getText().toString();
                     progressBar.setVisibility(View.VISIBLE);
-                    registerUser (textFullName,textEmail,textAge,textPwd,textChronic);
+                    registerUser (textFullName,textEmail,textAge,textPwd,textChronic,textgrp);
                 }
             }
         });
     }
 
-    private void registerUser(String textFullName, String textEmail, Integer textAge, String textPwd, String textChronic) {
+    private void registerUser(String textFullName, String textEmail, Integer textAge, String textPwd, String textChronic ,String textgrp) {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         auth.createUserWithEmailAndPassword(textEmail,textPwd).addOnCompleteListener(registerActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -119,24 +123,24 @@ public class registerActivity extends AppCompatActivity {
                     FirebaseUser firebaseUser = auth.getCurrentUser();
                     UserProfileChangeRequest profileChangeRequest= new UserProfileChangeRequest.Builder().setDisplayName(textFullName).build();
                     firebaseUser.updateProfile(profileChangeRequest);
-                    ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(textAge,textChronic);
+                    ReadWriteUserDetails writeUserDetails = new ReadWriteUserDetails(textAge,textChronic,textgrp);
                     DatabaseReference referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users");
 
                     referenceProfile.child(firebaseUser.getUid()).setValue(writeUserDetails).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
-                             if (task.isSuccessful()){
-                                 firebaseUser.sendEmailVerification();
-                                 Toast.makeText(registerActivity.this, "User registerd successfully.Please verify your email", Toast.LENGTH_LONG).show();
-                                 Intent intent = new Intent(registerActivity.this, UserprofileActivity.class);
-                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                 startActivity(intent);
-                                 finish();
-                             }else {
-                                 Toast.makeText(registerActivity.this, "User registerd failed.Please try again", Toast.LENGTH_LONG).show();
+                            if (task.isSuccessful()){
+                                firebaseUser.sendEmailVerification();
+                                Toast.makeText(registerActivity.this, "User registerd successfully.Please verify your email", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(registerActivity.this, loginActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                startActivity(intent);
+                                finish();
+                            }else {
+                                Toast.makeText(registerActivity.this, "User registerd failed.Please try again", Toast.LENGTH_LONG).show();
 
-                             }
+                            }
                             progressBar.setVisibility(View.GONE);
                         }
                     });

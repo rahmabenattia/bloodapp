@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">bloodapp</string>
+    <string name="google_map_key">AIzaSyCYrjaJPEXNJgt7pvu3O-NNf9x5MHkBi_w</string>
+    <string name="choisir_groupe_sanguin" />
+    <string-array name="groupes_sanguine">
+        <item>O+</item>
+        <item>O-</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
 </resources>
